@@ -1,25 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Home from './components/Home';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+//import { GlobalStyle } from './AppGlobalStyle';
+import Exploratory from './components/Exploratory';
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
+import FetchingCountries from './components/FetchingCountries';
+import Country from './components/Country';
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+       <Router>
+        <Navbar/>      
+       
+       
+       {/* //////////////////////////////////////////////////////////////////////// */}
+          <Switch>
+           <Route path="/" component={Home} exact/>
+           <Route path="/exploratory" component={Exploratory}/>
+           <Route path="/countries" component={FetchingCountries}/>
+           <Route path="/:countryName" component={Country}/>
+
+         </Switch>
+       {/* //////////////////////////////////////////////////////////////////////// */}
+        
+
+         <Footer/>
+       </Router>
+  
+    
+    </React.Fragment>
   );
 }
 
