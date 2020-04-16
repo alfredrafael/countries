@@ -3,28 +3,32 @@ import { API_URL_ALL, API_URL_NAME } from '../config'
 
 
 
-const useCountryFetch = (countryName) => {
+const useCountryFetch = ({countryData}) => {
 
     const [countryState, setCountryState] = useState({});
     const [error, setError] = useState(false);
 
 
-    const fetchCountryName = useCallback(async () => {
+    const fetchCountryData = useCallback(async () => {
         try {
-            const endpoint = `API_URL_NAME/${countryName}`
+            const endpoint = `API_URL_NAME${countryData.name}`
             const response = await (await fetch(endpoint)).json();
             console.log(response);
         
         setCountryState({
-            ...response
+            countryState: response,
             });
         }
         catch (error) {
-            SetError(true);
-            console.log(error.message);
+            setError(true);
         }
     });
-    
+
+    useEffect(() => {
+        fetchCountryData()
+    }, [fetchCountryData, countryData]);
+   
+    return [countryData]
 }
 
 export default useCountryFetch

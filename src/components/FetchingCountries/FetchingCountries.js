@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
+import { Link } from '@reach/router';
 import {API_URL_ALL} from '../../config';
 import { Container } from 'reactstrap';
+
 
 
 
@@ -42,14 +44,16 @@ return(
     <br/>
 <div style={{backgroundColor: 'azure'}}>
     {
-         stateFromAPI.map((country, index) => (
-            <div key={index} style={{marginBottom: '7%'}}>
+    stateFromAPI.map((country, index) => (
+        <div key={index} style={{marginBottom: '7%'}}>
+            <Link to={`/${country.name}`}>
+
             <p>{country.name}</p>
                 <img style={{maxWidth: '100px', border: '1px solid grey'}} src={country.flag}/>
-            </div>
+            </Link>     
+        </div>
         ))
     }
-
 </div>
 </Container>
     </React.Fragment>
