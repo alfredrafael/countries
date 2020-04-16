@@ -1,8 +1,6 @@
 import React from 'react';
 import './App.css';
 import Home from './components/Home';
-// import { Router } from '@reach/router';
-
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 //import { GlobalStyle } from './AppGlobalStyle';
 import Exploratory from './components/Exploratory';
@@ -15,26 +13,23 @@ import Country from './components/Country';
 const App = () => {
   return (
     <React.Fragment>
-
        <Router>
-       <Navbar/>      
+        <Navbar/>      
        
        
        {/* //////////////////////////////////////////////////////////////////////// */}
-           <Switch>
+          <Switch>
+           <Route path="/" component={Home} exact/>
+           <Route path="/exploratory" component={Exploratory}/>
+           <Route path="/countries" component={FetchingCountries}/>
+           <Route exact path="/:countryName" component={() => <Country countryName={FetchingCountries} />} />
 
-              <Route path="/" component={Home}/>
-              <Route path="/exploratory" component={Exploratory}/>
-              <Route path="/countries" component={FetchingCountries}/>
-              <Route path="/:countryName" component={Country} />
-              
-           </Switch>
-
+         </Switch>
        {/* //////////////////////////////////////////////////////////////////////// */}
-       <Footer/>
+        
+
+         <Footer/>
        </Router>
-
-
   
     
     </React.Fragment>

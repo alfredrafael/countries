@@ -4,6 +4,7 @@ import { API_URL_NAME } from '../../config';
 
 const Country = ({countryName}) => {
 
+
 // State ------------------------------ //
     const [stateCountryName, setCountryName] = useState([]);
 // END of state ------------------------------ //
@@ -12,9 +13,9 @@ const Country = ({countryName}) => {
 //  ------------------------------ //
 const getCountry = async () => {
     try {
-    const response = await fetch(API_URL_NAME`${countryName}`);
-    const jsonData = await response.json();
-    setCountryName(jsonData);
+        const response = await fetch(API_URL_NAME`${countryName}`);
+        const jsonData = await response.json();
+        setCountryName(jsonData);
     }
     
     catch(errorResponse){
