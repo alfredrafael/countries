@@ -37,6 +37,12 @@ useEffect(() => {
 console.log(stateFromAPI);
 //  --------------------------------------------- //
 
+const getValue = (e) => {
+
+    let clicked = e.target.value;
+    console.log(clicked);
+}
+
 
 return(
     <React.Fragment>
@@ -45,10 +51,9 @@ return(
 <div style={{backgroundColor: 'azure'}}>
     {
     stateFromAPI.map((country, index) => (
-        <div key={index} style={{marginBottom: '7%'}}>
+        <div key={index} style={{marginBottom: '7%'}} onClick={getValue}>
             <Link to={`/${country.name}`}>
-
-            <p>{country.name}</p>
+                <p>{country.name}</p>
                 <img style={{maxWidth: '100px', border: '1px solid grey'}} src={country.flag}/>
             </Link>     
         </div>

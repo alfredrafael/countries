@@ -6,7 +6,7 @@ import ReactLogo from "../elements/ReactLogo";
 const Exploratory = () => {
   return (
     <React.Fragment>
-      <Row style={{ background: "blue", height: "90vh" }}>
+      <Row style={{ background: "blue" }}>
         <Container style={{ display: "flex", background: "azure" }}>
           <Col style={{ flex: 1 }}>
             <ReactLogo />
