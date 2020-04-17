@@ -22,7 +22,7 @@ const App = () => {
            <Route path="/" component={Home} exact/>
            <Route path="/exploratory" component={Exploratory}/>
            <Route path="/countries" component={FetchingCountries}/>
-           <Route path="/:countryName" children={<Country />}/>
+           <Route path="/:countryName" children={<Country />} />
 
          </Switch>
        {/* //////////////////////////////////////////////////////////////////////// */}

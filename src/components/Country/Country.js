@@ -8,11 +8,11 @@ import { API_URL_NAME } from '../../config';
 const Country = () => {
 
     let {countryName} = useParams();
-    
+
     return(
         <React.Fragment>
             <p>Country: {countryName}</p>
-            <p>Country: {countryName.region}</p>
+            <p>Region: {countryName.region}</p>
 
         </React.Fragment>
 )}
