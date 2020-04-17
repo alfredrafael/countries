@@ -16,13 +16,13 @@ const App = () => {
        <Router>
         <Navbar/>      
        
-       
+
        {/* //////////////////////////////////////////////////////////////////////// */}
           <Switch>
            <Route path="/" component={Home} exact/>
            <Route path="/exploratory" component={Exploratory}/>
            <Route path="/countries" component={FetchingCountries}/>
-           <Route exact path="/:countryName" component={() => <Country countryName />} />
+           <Route path="/:countryName" children={<Country />}/>
 
          </Switch>
        {/* //////////////////////////////////////////////////////////////////////// */}

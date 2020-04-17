@@ -1,47 +1,20 @@
-import React, {useState, useEffect}from 'react';
+import React, {Fragment, useState, useEffect}from 'react';
+import {useParams} from 'react-router-dom';
 import { API_URL_NAME } from '../../config';
 
 
-const Country = ({countryName}) => {
 
 
-// State ------------------------------ //
-    const [stateCountryName, setCountryName] = useState([]);
-// END of state ------------------------------ //
+const Country = () => {
 
-
-//  ------------------------------ //
-const getCountry = async () => {
-    try {
-        const response = await fetch(API_URL_NAME`${countryName}`);
-        const jsonData = await response.json();
-        setCountryName(jsonData);
-    }
+    let {countryName} = useParams();
     
-    catch(errorResponse){
-    console.error(errorResponse.message)
-    }
-
-
-}; 
-//  ------------------------------ //
-
-
-useEffect(()=>{
-    getCountry();
-    }, []
-);
-
-console.log(stateCountryName);
-
-
-
-    return (
+    return(
         <React.Fragment>
-            Country Goes here
-            <h1>{countryName}</h1>
+            <p>Country: {countryName}</p>
+            <p>Country: {countryName.region}</p>
+
         </React.Fragment>
-    )
-}
+)}
 
 export default Country
