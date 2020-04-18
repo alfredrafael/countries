@@ -46,7 +46,7 @@ return(
     {
     stateFromAPI.map((country, index) => (
         <div key={index} style={{marginBottom: '7%'}}>
-            <Link to={`/${country.name}`} onClick={e=>this.context.router.transitionTo(`/${country.name}`)}>
+            <Link to={`/${country.name}`} onClick={() => this.context.router.transitionTo(`/${country.name}`)}>
                 <p>{country.name}</p>
                 <img style={{maxWidth: '100px', border: '1px solid grey'}} src={country.flag}/>
             </Link>     
