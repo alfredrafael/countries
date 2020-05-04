@@ -4,41 +4,27 @@ import { API_URL_NAME } from '../../config';
 
 
 
-
 const Country = (props) => {
 
 
-let {countryName} = useParams();
-
-// State ------------------------------ //
-const [stateCountry, setStateCountry] = useState([]);
-// END of State ----------------------- //
+let {countryName} = useParams(); // it seem grab whatever is at the end of the URL (slug)...
 
 
-//  GET ALL------------------------------ //
 
 const getCountry = async () => {
     try {
-    const response = await fetch(`API_URL_NAME${props.children}`);
-    const jsonData = await response.json();
-    console.log(jsonData);
-    setStateCountry(jsonData);
+    const response = await fetch(API_URL_NAME`${countryName}`);
+    const countryData = await response.json();
+    console.log(countryData);
+
 }
     catch(errorResponse){
     console.error(errorResponse.message)
     }
-};
-// End Get ALL ------------------------------ //   
 
+}; // end of getCountry function
 
-// Execute GET all ------------------------------ //
-useEffect(() => {
-    getCountry(); // this is the one ACTUALLY requesting the fetch
-}, []);
-
-
-console.log(stateCountry);
-//  --------------------------------------------- //
+getCountry();
 
 
     return(
